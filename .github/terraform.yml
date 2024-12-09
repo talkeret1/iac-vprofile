@@ -12,10 +12,10 @@ on:
     paths:
       - terraform/**
 env:
-  # Credentials for Deployment to AWS
+  ## Credentials for Deployment to AWS
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: $ {{ secrets.AWS_SECRET_ACCESS_KEY }}
-  # S3 Bucket for the Terraform State
+  ## S3 Bucket for the Terraform State
   BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
   AWS_REGION: us-east-1
   EKS_CLUSTER: vprofile-eks
@@ -32,8 +32,8 @@ env:
           uses: actions/checkout@v4
         - name: Setup Terraform with Specified Version on the Runner
           uses: hashicorp/setup-terraform@v2
-        # with:
-        #   terraform_version: 1.6.3
+        ## with:
+        ##   terraform_version: 1.6.3
         - name: Terraform Init
           id: init
           run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
