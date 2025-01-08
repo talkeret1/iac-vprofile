@@ -30,6 +30,7 @@ jobs:
         steps:
             - name: "Checkout Source Code"
               uses: actions/checkout@v4   # Checkout Action from Github Marketplace Actions.
+              
             - name: "Setup Terraform with Specified Version on the Runner"
               uses: hashicorp/setup-terraform@v2 # HashiCorp - Setup Terraform Terraform from Github Marketplace Actions.
             #   with:
