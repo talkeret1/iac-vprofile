@@ -58,6 +58,11 @@ jobs:
             - name: "Terraform Plan Status"
               if: steps.plan.outcome == 'failure'
               run: exit 1
+              
+            - name: "Terraform Destroy"
+              if: steps.plan.outcome == 'failure'
+              id: destroy
+              run: terraform destroy
             
             - name: "Terraform Apply"
               id: apple
